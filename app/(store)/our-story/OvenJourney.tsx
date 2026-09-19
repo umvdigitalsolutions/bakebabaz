@@ -22,7 +22,7 @@ export function OvenJourney() {
             <Image src="/brand/ai-bakery-hero.png" alt="Bake Baba'z bakery spread" fill priority sizes="100vw" className={styles.ovenSceneImage} />
             <div className={styles.ovenSceneShade} />
             <motion.h2 className={styles.onlyStoryTitle} style={reduceMotion ? undefined : { opacity: titleOpacity, y: titleY }}>
-              Every Bake<br />Has a Story
+              Every Bake Has a Story
             </motion.h2>
           </div>
           <motion.div className={`${styles.ovenDoor} ${styles.ovenDoorLeft}`} style={reduceMotion ? { x: "-104%" } : { x: doorLeft }} aria-hidden="true"><b className={styles.doorHandle} /></motion.div>
