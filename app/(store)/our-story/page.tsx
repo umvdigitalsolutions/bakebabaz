@@ -7,6 +7,7 @@ import { OrderBanner } from "@/components/store/home/OrderBanner";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { BreadcrumbJsonLd } from "@/components/shared/JsonLd";
+import { StoryAtmosphere } from "./StoryAtmosphere";
 import styles from "./story-hero.module.css";
 
 export const metadata: Metadata = {
@@ -101,6 +102,7 @@ export default async function OurStoryPage() {
         className={`${styles.hero} ${!heroImage?.url ? styles.heroWithoutImage : ""}`}
         aria-labelledby="founder-heading"
       >
+        <StoryAtmosphere />
         {heroImage?.url ? (
           <div className={styles.portrait}>
             <Image
@@ -155,6 +157,7 @@ export default async function OurStoryPage() {
             key={story.id}
             className={`${styles.storySection} ${isReverse ? styles.storySectionReverse : ""} ${!storyImage?.url ? styles.storySectionWithoutImage : ""}`}
             aria-labelledby={story.id}
+            data-chapter={String(index + 1).padStart(2, "0")}
           >
             {storyImage?.url ? (
               <div className={styles.storyMedia}>
@@ -173,6 +176,11 @@ export default async function OurStoryPage() {
                 delay={0.1}
                 className={`${styles.storyCopy} ${isReverse ? styles.storyCopyReverse : ""}`}
               >
+                <div className={styles.chapterLabel} aria-hidden="true">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <i />
+                  <span>Our story</span>
+                </div>
                 <p className="eyebrow mb-4">{story.eyebrow}</p>
                 <h2
                   id={story.id}
@@ -199,7 +207,7 @@ export default async function OurStoryPage() {
         );
       })}
 
-      <section className="wrap section-y">
+      <section className={`wrap section-y ${styles.valuesSection}`}>
         <SectionHead
           eyebrow="What we believe"
           title="Three things we don’t compromise on"
