@@ -593,3 +593,197 @@
     display: none;
   }
 }
+
+
+/* Signature scroll-controlled oven journey -------------------------------- */
+.ovenJourney {
+  position: relative;
+  height: 230vh;
+  background: #170d0a;
+}
+
+.ovenSticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 58%, rgba(255, 146, 63, 0.22), transparent 32%),
+    linear-gradient(180deg, #160d0a, #090504);
+}
+
+.ovenInterior {
+  position: absolute;
+  inset: clamp(24px, 5vw, 72px);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 213, 168, 0.2);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), transparent 24%),
+    radial-gradient(circle at 50% 70%, #8e351d 0%, #3a160e 28%, #120907 68%);
+  box-shadow: inset 0 0 90px rgba(0,0,0,0.8), 0 0 0 10px #21120e;
+}
+
+.ovenGlow {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: 4%;
+  width: min(78vw, 980px);
+  aspect-ratio: 1.7;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,151,67,.9), rgba(224,75,32,.3) 40%, transparent 72%);
+  filter: blur(42px);
+  pointer-events: none;
+}
+
+.ovenRack {
+  position: absolute;
+  right: 5%;
+  bottom: 19%;
+  left: 5%;
+  height: 8px;
+  opacity: .42;
+  background: repeating-linear-gradient(90deg, #d8a078 0 2px, transparent 2px 42px);
+  border-block: 1px solid rgba(255,218,188,.38);
+  transform: perspective(420px) rotateX(58deg);
+}
+
+.ovenDoor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 50.5%;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.035), transparent 20%),
+    #160f0d;
+  border-color: rgba(255,255,255,.07);
+  box-shadow: 0 0 60px rgba(0,0,0,.75);
+}
+
+.ovenDoorLeft { left: 0; border-right: 1px solid rgba(255,165,91,.25); }
+.ovenDoorRight { right: 0; border-left: 1px solid rgba(255,165,91,.25); }
+
+.ovenDoor span {
+  width: min(44%, 210px);
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(#6d5a51, #2b211d);
+  box-shadow: 0 2px 0 #090605, 0 0 22px rgba(255,142,70,.08);
+}
+
+.ovenDoorLeft span { justify-self: end; margin-right: 8%; }
+.ovenDoorRight span { justify-self: start; margin-left: 8%; }
+
+.ovenIntro {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #fff7ef;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+.ovenIntro span {
+  max-width: 760px;
+  padding-inline: 24px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  text-transform: none;
+}
+
+.ovenIntro i {
+  width: 1px;
+  height: 54px;
+  margin: 24px 0 14px;
+  background: linear-gradient(#f1a06d, transparent);
+}
+
+.ovenIntro small { font-size: 9px; font-weight: 800; }
+
+.ovenReveal {
+  position: relative;
+  z-index: 2;
+  width: min(760px, calc(100% - 40px));
+  padding: clamp(26px, 5vw, 58px);
+  color: #fff8f0;
+  text-align: center;
+}
+
+.ovenEyebrow {
+  margin-bottom: 16px;
+  color: #f3ad79;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.ovenReveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 78px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.ovenReveal > p:not(.ovenEyebrow) {
+  max-width: 590px;
+  margin: 24px auto 0;
+  color: rgba(255,245,236,.78);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.7;
+}
+
+.ovenSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 38px;
+  border: 1px solid rgba(255,221,195,.18);
+  background: rgba(255,255,255,.08);
+}
+
+.ovenSteps span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 10px;
+  background: rgba(17,8,5,.56);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.ovenSteps b { color: #f3ad79; font-size: 10px; }
+
+@media (max-width: 639px) {
+  .ovenJourney { height: 190vh; }
+  .ovenSticky { min-height: 560px; }
+  .ovenInterior { inset: 18px; border-radius: 18px; }
+  .ovenSteps { grid-template-columns: repeat(2, 1fr); }
+  .ovenDoor span { width: 34%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ovenJourney { height: 100svh; }
+  .ovenReveal { opacity: 1 !important; transform: none !important; }
+  .ovenIntro { display: none; }
+}
