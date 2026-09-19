@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { BreadcrumbJsonLd } from "@/components/shared/JsonLd";
 import { StoryAtmosphere } from "./StoryAtmosphere";
+import { OvenJourney } from "./OvenJourney";
 import styles from "./story-hero.module.css";
 
 export const metadata: Metadata = {
@@ -147,6 +148,8 @@ export default async function OurStoryPage() {
           </Reveal>
         </div>
       </section>
+
+      <OvenJourney />
 
       {founderStories.map((story, index) => {
         const isReverse = index % 2 === 1;
