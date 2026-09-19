@@ -1,0 +1,351 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 250, 244, 0.02) 0%,
+      rgba(255, 250, 244, 0.1) 34%,
+      rgba(255, 250, 244, 0.86) 58%,
+      var(--color-paper) 78%
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 250, 244, 0.74),
+      rgba(255, 250, 244, 0.08) 70%
+    );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(61, 37, 33, 0.04) 0 1px,
+    transparent 1px 116px
+  );
+  opacity: 0.42;
+}
+
+.portrait {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: min(68vw, 430px);
+  pointer-events: none;
+}
+
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 8% 0 auto;
+  height: 78%;
+  background: color-mix(in srgb, var(--color-cream) 62%, var(--color-paper));
+  filter: blur(34px);
+  opacity: 0.7;
+}
+
+.photo {
+  object-fit: contain;
+  object-position: top center;
+}
+
+.content {
+  z-index: 2;
+  position: relative;
+  padding-block: min(58vw, 350px) 60px;
+}
+
+.heroWithoutImage .content {
+  padding-top: 72px;
+}
+
+.copy {
+  max-width: 560px;
+}
+
+.title {
+  max-width: 620px;
+  font-size: 52px;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.heroLine {
+  margin-top: 18px;
+  color: var(--color-coral-dark);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.heroText {
+  margin-top: 22px;
+  max-width: 455px;
+  color: var(--color-cocoa-soft);
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.quote {
+  position: relative;
+  margin-top: 30px;
+  max-width: 470px;
+  border-left: 2px solid var(--color-coral);
+  padding: 3px 0 3px 20px;
+  color: var(--color-cocoa);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.38;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+  max-width: 480px;
+}
+
+.heroMeta span {
+  border: 1px solid color-mix(in srgb, var(--color-cocoa) 20%, transparent);
+  background: rgba(255, 250, 244, 0.64);
+  padding: 8px 12px;
+  color: var(--color-cocoa-soft);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.storySection {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-cream) 54%, var(--color-paper)),
+    var(--color-paper) 44%,
+    color-mix(in srgb, var(--color-coral-soft) 18%, var(--color-paper))
+  );
+  border-top: 1px solid var(--color-line);
+}
+
+.storySectionReverse {
+  background: linear-gradient(
+    270deg,
+    color-mix(in srgb, var(--color-cream) 54%, var(--color-paper)),
+    var(--color-paper) 44%,
+    color-mix(in srgb, var(--color-coral-soft) 18%, var(--color-paper))
+  );
+}
+
+.storySection::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: 38%;
+  background: linear-gradient(to top, rgba(239, 102, 95, 0.055), transparent);
+}
+
+.storyMedia {
+  position: relative;
+  height: 410px;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 96%);
+}
+
+.storyImage {
+  object-fit: cover;
+}
+
+.storyInner {
+  position: relative;
+  padding-block: 0 54px;
+}
+
+.storyCopy {
+  max-width: 520px;
+}
+
+.storySectionWithoutImage .storyInner {
+  padding-top: 54px;
+}
+
+.detailList {
+  margin-top: 26px;
+  border-block: 1px solid var(--color-line);
+}
+
+.detailItem {
+  position: relative;
+  margin: 0;
+  padding: 13px 0 13px 22px;
+  color: var(--color-cocoa-soft);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.detailItem + .detailItem {
+  border-top: 1px solid color-mix(in srgb, var(--color-line) 78%, transparent);
+}
+
+.detailItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.55em;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--color-coral);
+  border-radius: 50%;
+  background: var(--color-paper);
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .portrait {
+    height: min(68vw, 500px);
+  }
+
+  .content {
+    padding-block: min(58vw, 420px) 72px;
+  }
+
+  .heroWithoutImage .content {
+    padding-block: 104px 96px;
+  }
+
+  .storyMedia {
+    height: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 250, 244, 0.98) 0%,
+        rgba(255, 250, 244, 0.9) 30%,
+        rgba(255, 250, 244, 0.54) 50%,
+        rgba(255, 250, 244, 0.08) 76%
+      ),
+      linear-gradient(
+        to top,
+        var(--color-paper) 0%,
+        rgba(255, 250, 244, 0.68) 14%,
+        transparent 38%
+      );
+  }
+
+  .portrait {
+    inset: 0 max(0px, calc((100% - 1360px) / 2)) 0 auto;
+    width: min(68vw, 980px);
+    height: auto;
+  }
+
+  .photo {
+    object-position: center center;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    min-height: 720px;
+    padding-block: 104px 96px;
+  }
+
+  .copy {
+    width: 52%;
+  }
+
+  .title {
+    font-size: 70px;
+  }
+
+  .storySection {
+    min-height: 600px;
+  }
+
+  .storyMedia {
+    position: absolute;
+    inset: 0 auto 0 max(0px, calc((100% - 1280px) / 2));
+    width: min(58%, 700px);
+    height: auto;
+    mask-image:
+      linear-gradient(to right, #000 68%, transparent 100%),
+      linear-gradient(to bottom, transparent, #000 10%, #000 86%, transparent);
+    mask-composite: intersect;
+  }
+
+  .storySectionReverse .storyMedia {
+    right: max(0px, calc((100% - 1280px) / 2));
+    left: auto;
+    mask-image:
+      linear-gradient(to left, #000 68%, transparent 100%),
+      linear-gradient(to bottom, transparent, #000 10%, #000 86%, transparent);
+    mask-composite: intersect;
+  }
+
+  .storyInner {
+    display: flex;
+    align-items: center;
+    min-height: 600px;
+    padding-block: 76px;
+  }
+
+  .storyCopy {
+    margin-left: auto;
+    width: 43%;
+  }
+
+  .storyCopyReverse {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .storySectionWithoutImage .storyCopy,
+  .storySectionWithoutImage .storyCopyReverse {
+    width: min(100%, 680px);
+    max-width: 680px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero,
+  .content {
+    min-height: 760px;
+  }
+
+  .title {
+    font-size: 86px;
+  }
+
+  .storySection,
+  .storyInner {
+    min-height: 670px;
+  }
+}

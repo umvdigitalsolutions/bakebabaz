@@ -1,0 +1,257 @@
+.compass {
+  display: grid;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #2b1815;
+  color: #ffffff;
+  box-shadow: 0 28px 70px rgba(61, 37, 33, 0.16);
+}
+
+.stage {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  background: #412520;
+  isolation: isolate;
+}
+
+.imageLayer,
+.scrim {
+  position: absolute;
+  inset: 0;
+}
+
+.imageLayer {
+  z-index: -2;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.scrim {
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(27, 12, 10, 0.04) 30%,
+      rgba(27, 12, 10, 0.88) 100%
+    ),
+    linear-gradient(90deg, rgba(27, 12, 10, 0.24), transparent 46%);
+}
+
+.railLabel {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.stageIndex {
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.indexRule {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2rem 1.5rem;
+}
+
+.captionLabel,
+.controlsEyebrow {
+  margin: 0;
+  color: #f3aaa5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.caption h3 {
+  max-width: 620px;
+  margin-top: 9px;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.04;
+}
+
+.caption > p:last-child {
+  max-width: 580px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.controls {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 2rem 1.25rem;
+}
+
+.controlsEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlsEyebrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.question {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1.08;
+}
+
+.choiceList {
+  margin-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.choice {
+  display: grid;
+  width: 100%;
+  min-height: 58px;
+  grid-template-columns: 30px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.64);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.choice:hover,
+.choice[data-active] {
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+}
+
+.choice[data-active] .choiceNumber {
+  color: #f58a82;
+}
+
+.choice svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.choice:hover svg,
+.choice[data-active] svg {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
+.choiceNumber {
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.directionDetails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.directionDetails p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.swatches {
+  display: flex;
+}
+
+.swatches span {
+  width: 24px;
+  height: 24px;
+  margin-right: -4px;
+  border: 2px solid #2b1815;
+  border-radius: 50%;
+}
+
+.studioLink {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .caption {
+    padding: 2.75rem;
+  }
+
+  .controls {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .compass {
+    grid-template-columns: minmax(0, 1.48fr) minmax(290px, 0.72fr);
+  }
+
+  .stage {
+    min-height: 670px;
+  }
+
+  .controls {
+    padding: 3rem 2.25rem;
+  }
+
+  .studioLink {
+    margin-top: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice,
+  .choice svg {
+    transition: none;
+  }
+}

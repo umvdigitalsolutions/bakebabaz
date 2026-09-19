@@ -1,0 +1,47 @@
+.founderSection {
+  background: #2f1b18;
+  color: #ffffff;
+}
+
+.founderInner {
+  display: grid;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.founderPortrait {
+  position: relative;
+  min-height: 520px;
+}
+
+.founderPhoto {
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.founderCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .founderCopy {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .founderInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+
+  .founderPortrait {
+    min-height: 720px;
+  }
+
+  .founderCopy {
+    padding-inline: 12%;
+  }
+}

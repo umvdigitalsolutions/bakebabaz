@@ -1,0 +1,37 @@
+.studioLayout {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 1.75rem;
+}
+
+.previewColumn {
+  min-width: 0;
+}
+
+.previewMedia {
+  height: clamp(280px, 75vw, 430px);
+}
+
+@media (min-width: 768px) {
+  .previewMedia {
+    height: min(58vh, 520px);
+  }
+}
+
+@media (min-width: 960px) {
+  .studioLayout {
+    grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+    gap: 2.5rem;
+  }
+
+  .previewColumn {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .previewMedia {
+    height: min(58vh, 620px);
+  }
+}
