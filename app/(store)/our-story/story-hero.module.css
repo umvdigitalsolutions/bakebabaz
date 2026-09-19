@@ -596,194 +596,31 @@
 
 
 /* Signature scroll-controlled oven journey -------------------------------- */
-.ovenJourney {
-  position: relative;
-  height: 230vh;
-  background: #170d0a;
-}
-
-.ovenSticky {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  min-height: 620px;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(circle at 50% 58%, rgba(255, 146, 63, 0.22), transparent 32%),
-    linear-gradient(180deg, #160d0a, #090504);
-}
-
-.ovenInterior {
-  position: absolute;
-  inset: clamp(24px, 5vw, 72px);
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 213, 168, 0.2);
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.035), transparent 24%),
-    radial-gradient(circle at 50% 70%, #8e351d 0%, #3a160e 28%, #120907 68%);
-  box-shadow: inset 0 0 90px rgba(0,0,0,0.8), 0 0 0 10px #21120e;
-}
-
-.ovenGlow {
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  bottom: 4%;
-  width: min(78vw, 980px);
-  aspect-ratio: 1.7;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(255,151,67,.9), rgba(224,75,32,.3) 40%, transparent 72%);
-  filter: blur(42px);
-  pointer-events: none;
-}
-
-.ovenRack {
-  position: absolute;
-  right: 5%;
-  bottom: 19%;
-  left: 5%;
-  height: 8px;
-  opacity: .42;
-  background: repeating-linear-gradient(90deg, #d8a078 0 2px, transparent 2px 42px);
-  border-block: 1px solid rgba(255,218,188,.38);
-  transform: perspective(420px) rotateX(58deg);
-}
-
-.ovenDoor {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 4;
-  width: 50.5%;
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,.035), transparent 20%),
-    #160f0d;
-  border-color: rgba(255,255,255,.07);
-  box-shadow: 0 0 60px rgba(0,0,0,.75);
-}
-
-.ovenDoorLeft { left: 0; border-right: 1px solid rgba(255,165,91,.25); }
-.ovenDoorRight { right: 0; border-left: 1px solid rgba(255,165,91,.25); }
-
-.ovenDoor span {
-  width: min(44%, 210px);
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(#6d5a51, #2b211d);
-  box-shadow: 0 2px 0 #090605, 0 0 22px rgba(255,142,70,.08);
-}
-
-.ovenDoorLeft span { justify-self: end; margin-right: 8%; }
-.ovenDoorRight span { justify-self: start; margin-left: 8%; }
-
-.ovenIntro {
-  position: absolute;
-  inset: 0;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  color: #fff7ef;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-}
-
-.ovenIntro span {
-  max-width: 760px;
-  padding-inline: 24px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 72px);
-  line-height: 1.02;
-  letter-spacing: -.02em;
-  text-transform: none;
-}
-
-.ovenIntro i {
-  width: 1px;
-  height: 54px;
-  margin: 24px 0 14px;
-  background: linear-gradient(#f1a06d, transparent);
-}
-
-.ovenIntro small { font-size: 9px; font-weight: 800; }
-
-.ovenReveal {
-  position: relative;
-  z-index: 2;
-  width: min(760px, calc(100% - 40px));
-  padding: clamp(26px, 5vw, 58px);
-  color: #fff8f0;
-  text-align: center;
-}
-
-.ovenEyebrow {
-  margin-bottom: 16px;
-  color: #f3ad79;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-.ovenReveal h2 {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 6vw, 78px);
-  line-height: .98;
-  letter-spacing: -.035em;
-}
-
-.ovenReveal > p:not(.ovenEyebrow) {
-  max-width: 590px;
-  margin: 24px auto 0;
-  color: rgba(255,245,236,.78);
-  font-size: clamp(15px, 1.6vw, 18px);
-  line-height: 1.7;
-}
-
-.ovenSteps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  margin-top: 38px;
-  border: 1px solid rgba(255,221,195,.18);
-  background: rgba(255,255,255,.08);
-}
-
-.ovenSteps span {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 18px 10px;
-  background: rgba(17,8,5,.56);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.ovenSteps b { color: #f3ad79; font-size: 10px; }
-
-@media (max-width: 639px) {
-  .ovenJourney { height: 190vh; }
-  .ovenSticky { min-height: 560px; }
-  .ovenInterior { inset: 18px; border-radius: 18px; }
-  .ovenSteps { grid-template-columns: repeat(2, 1fr); }
-  .ovenDoor span { width: 34%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ovenJourney { height: 100svh; }
-  .ovenReveal { opacity: 1 !important; transform: none !important; }
-  .ovenIntro { display: none; }
-}
+.ovenJourney{position:relative;height:230vh;background:#120806}
+.ovenSticky{position:sticky;top:0;height:100svh;min-height:620px;overflow:hidden;isolation:isolate;background:#100806}
+.ovenInterior{position:absolute;inset:clamp(20px,4vw,58px);z-index:1;overflow:hidden;border:1px solid rgba(244,174,111,.3);border-radius:28px;background:radial-gradient(ellipse at 50% 72%,#7d2e18 0%,#34130c 31%,#130806 72%);box-shadow:inset 0 0 100px #050201,0 0 0 10px #21110c}
+.ovenGlow{position:absolute;z-index:0;left:50%;bottom:-8%;width:min(86vw,1100px);aspect-ratio:1.8;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,rgba(255,145,57,.85),rgba(204,61,25,.26) 44%,transparent 72%);filter:blur(46px);pointer-events:none}
+.ovenCopy{position:absolute;z-index:4;top:9%;left:50%;width:min(720px,88%);transform:translateX(-50%);text-align:center;color:#fff7ef;text-shadow:0 3px 22px rgba(15,4,1,.9)}
+.ovenCopy p{margin:0 0 12px;color:#efa66e;font-size:10px;font-weight:900;letter-spacing:.24em;text-transform:uppercase}
+.ovenCopy h2{margin:0;font-family:var(--font-display);font-size:clamp(40px,5.4vw,76px);line-height:.9;letter-spacing:-.035em}
+.ovenCopy span{display:block;margin:16px auto 0;max-width:510px;color:rgba(255,245,235,.78);font-size:14px;line-height:1.55}
+.bakeDisplay{position:absolute;z-index:3;right:5%;bottom:18%;left:5%;height:42%;filter:drop-shadow(0 20px 18px rgba(0,0,0,.45))}
+.displayBoard{position:absolute;right:2%;bottom:1%;left:2%;height:8%;border-radius:50%;background:linear-gradient(#9a5430,#4a2113);box-shadow:0 12px 20px #090302}
+.bakeItem{position:absolute;z-index:2;overflow:hidden;border:1px solid rgba(255,220,190,.22);background:#2b110b;box-shadow:0 12px 26px rgba(0,0,0,.55)}
+.bakePhoto{object-fit:cover}
+.bakeCake{left:36%;bottom:7%;width:28%;height:62%;border-radius:50% 50% 14% 14%/18% 18% 8% 8%}
+.bakeCookies{right:4%;bottom:7%;width:23%;height:48%;border-radius:45% 45% 10% 10%}
+.bakeCupcakes{left:4%;bottom:7%;width:22%;height:43%;border-radius:50% 50% 12% 12%}
+.bakeBrownie{left:23%;bottom:6%;width:17%;height:34%;transform:rotate(-3deg);border-radius:12px}
+.bakeNankhatai{right:24%;bottom:6%;width:15%;height:32%;transform:rotate(3deg);border-radius:50% 50% 12px 12px}
+.ovenDoor{position:absolute;top:0;bottom:0;z-index:7;width:50.5%;display:grid;place-items:center;background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 20%),#160f0d;box-shadow:0 0 60px rgba(0,0,0,.75)}
+.ovenDoorLeft{left:0;border-right:1px solid rgba(255,165,91,.25)}.ovenDoorRight{right:0;border-left:1px solid rgba(255,165,91,.25)}
+.ovenDoor span{width:min(44%,210px);height:7px;border-radius:999px;background:linear-gradient(#6d5a51,#2b211d);box-shadow:0 2px 0 #090605}
+.ovenDoorLeft span{justify-self:end;margin-right:8%}.ovenDoorRight span{justify-self:start;margin-left:8%}
+.ovenIntro{position:absolute;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;color:#fff7ef;text-align:center}
+.ovenIntro span{max-width:760px;padding-inline:24px;font-family:var(--font-display);font-size:clamp(30px,5vw,72px);line-height:1.02}
+.ovenIntro i{width:1px;height:54px;margin:24px 0 14px;background:linear-gradient(#f1a06d,transparent)}.ovenIntro small{font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.ovenSteps{position:absolute;z-index:5;right:10%;bottom:5%;left:10%;display:flex;align-items:center;justify-content:center;color:#fff7ef}
+.ovenSteps span{display:flex;gap:7px;align-items:center;white-space:nowrap;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.ovenSteps b{color:#efa66e;font-size:9px}.ovenSteps i{width:clamp(20px,5vw,72px);height:1px;margin-inline:clamp(7px,2vw,24px);background:rgba(239,166,110,.4)}
+@media(max-width:639px){.ovenJourney{height:190vh}.ovenSticky{min-height:560px}.ovenInterior{inset:14px;border-radius:18px}.ovenCopy{top:10%}.ovenCopy span{font-size:12px}.bakeDisplay{right:2%;bottom:22%;left:2%;height:36%}.bakeCake{left:31%;width:38%}.bakeCookies{width:27%}.bakeCupcakes{width:27%}.bakeBrownie,.bakeNankhatai{display:none}.ovenSteps{right:5%;bottom:7%;left:5%;flex-wrap:wrap;gap:8px}.ovenSteps i{display:none}.ovenSteps span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.ovenJourney{height:100svh}.ovenIntro{display:none}}
