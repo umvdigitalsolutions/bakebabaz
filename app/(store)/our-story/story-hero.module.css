@@ -472,18 +472,6 @@
   position: relative;
 }
 
-.storyCopy::before {
-  content: attr(data-chapter);
-  position: absolute;
-  right: 0;
-  top: -36px;
-  z-index: -1;
-  color: color-mix(in srgb, var(--color-coral) 7%, transparent);
-  font-family: var(--font-display);
-  font-size: clamp(92px, 12vw, 176px);
-  font-weight: 600;
-  line-height: 1;
-}
 
 .detailItem {
   transition:
